@@ -6,9 +6,4 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  build: {
-    // Dice a Vite di salvare i file pronti un livello più in alto (../), 
-    // ovvero direttamente nella root del tuo repository GitHub
-    outDir: '../docs', 
-  }
 })
