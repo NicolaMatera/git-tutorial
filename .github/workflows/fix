@@ -44,7 +44,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Carica la cartella dist generata da Vite dentro whitelabelsite
           path: whitelabelsite/dist
 
       - name: Deploy to GitHub Pages
