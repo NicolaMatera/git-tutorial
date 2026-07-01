@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@layer utilities {
+  .font-inter-custom {
+    font-family: 'Inter', sans-serif; /* Definisce il font */
+  }
+}
+
+@layer utilities {
+  .font-urbanist-custom {
+    font-family: 'Urbanist', sans-serif; /* Definisce il font */
+  }
+}
+
+@layer utilities {
+  .font-plus-custom {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Definisce il font */
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes marquee-seamless {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-50%)); } 
+}
+
+.animate-marquee {  /* Movimento lineare costante, senza accelerazioni o pause */
+  animation: marquee-seamless 20s linear infinite;
+  animation-play-state: paused;
+}
+
+.is-visible .animate-marquee {
+  animation-play-state: running;
+}
+
+@keyframes bottom-top-animation {
+  from { transform: translateY(20%); }
+  to { transform: translateY(0); }
+}
+
+.bottom-top {
+  animation: bottom-top-animation 1s ease-out forwards;
+  /* L'elemento deve partire invisibile o spostato per non vederlo prima del via */
+  transform: translateY(100%); 
+}
+
+/* Definiamo i keyframes */
+@keyframes pop-in {
+  0% {
+    transform: scale(0); /* Parte da dimensione zero */
+    opacity: 0;         /* Anche invisibile all'inizio, per un effetto più fluido */
+  }
+  
+  /* Opzionale: un leggero "bounce" (rimbalzo) al 80% per renderla più 'viva' */
+  80% {
+    transform: scale(1.1); /* Diventa leggermente più grande del normale */
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1); /* Torna alla sua dimensione definitiva (100%) */
+    opacity: 1;
+  }
+}
+
+/* Creiamo la classe da usare nell'HTML */
+.is-visibleimg1 {
+  /* Impostiamo lo stato iniziale fuori dall'animazione per sicurezza */
+  transform: scale(0);
+  opacity: 0;
+
+  /* Applichiamo l'animazione */
+  animation: pop-in 2.5s ease-out forwards;
+}
